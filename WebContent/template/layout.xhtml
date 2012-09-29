@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title><h:outputText value="#{msgs.tituloSistema}" /> - <h:outputText
+			value="#{msgs.institucion}" /></title>
+</h:head>
+<body>
+	<h:outputStylesheet library="css" name="default.css" />
+	<table id="layout" align="center">
+		<tr>
+			<td>
+				<div style="width: auto;">
+					<ui:include src="/template/header.xhtml" />
+				</div> 
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div id="content">
+					<p:growl autoUpdate="true" showDetail="true" widgetVar="growlMsg" sticky="true" life="1200"/>
+					<ui:insert name="content">
+						<span>Página en construcción</span>
+					</ui:insert>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div id="footer" align="center">
+					<ui:include src="/template/footer.xhtml" />
+				</div>
+			</td>
+		</tr>
+	</table>
+	<p:ajaxStatus onstart="statusDialog.show();"
+		onsuccess="statusDialog.hide();" />
+	<p:dialog modal="true" widgetVar="statusDialog" header="Procesando...."
+		draggable="false" closable="false">
+		<h:outputText value="Un momento por favor..." />
+		<br />
+		<p:graphicImage value="/resources/images/roller.gif" />
+	</p:dialog>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="/template/layout.xhtml">
+	<ui:define name="content">
+		<table align="center">
+			<tr>
+				<td><h:form>
+					<p:panel header="INGRESO AL SISTEMA">
+						<h:panelGrid columns="2">
+							<h:graphicImage url="/resources/images/login.png"
+								title="Acceso al sistema" alt="login" />
+							<h:panelGrid columns="1">
+								<h:outputLabel for="txtName" value="#{msgs.lblUsuario}" />
+								<p:inputText id="txtName" label="#{msgs.lblUsuario}"
+									value="#{loginMB.usuario}" styleClass="input-text-upper" 
+									converter="upperConverter" required="true" />
+								<h:outputLabel for="txtClave" value="#{msgs.lblClave}" />
+								<p:password id="txtClave" label="#{msgs.lblClave}"
+									value="#{loginMB.clave}" required="true" />
+								<p:commandButton value="#{msgs.btnAceptar}" action="#{loginMB.onLogin}"/>
+							</h:panelGrid>
+						</h:panelGrid>
+					</p:panel>
+				</h:form></td>
+			</tr>
+		</table>
+	</ui:define>
+</ui:composition>
+</html>

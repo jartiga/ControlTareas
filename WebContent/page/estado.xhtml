@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="/template/layout.xhtml">
+	<ui:define name="content">
+		<div class="tituloPantalla">
+			<p:separator />
+			<h:outputText value="#{msgs.mttoEstados}" />
+			<p:separator />
+		</div>
+		<h:form id="frm" prependId="false">
+			<p:toolbar>
+				<p:toolbarGroup align="left">
+					<p:commandButton action="#{estadoMB.onNew}" value="Nuevo"
+						update=":frm" oncomplete="formEdit.show();"
+						icon="ui-icon-document" />
+					<p:commandButton actionListener="#{estadoMB.onEdit}"
+						value="Editar" update=":frm" oncomplete="formEdit.show();"
+						icon="ui-icon-pencil" />
+					<p:commandButton actionListener="#{estadoMB.onDeleteRow}"
+						value="Eliminar" update=":frm"
+						onclick="if (!confirm('Eliminar registro?')){return false;}"
+						icon="ui-icon-trash" />
+				</p:toolbarGroup>
+			</p:toolbar>
+			<p:dataTable var="reg" value="#{estadoMB.listado}" id="dtLista"
+				rowKey="#{reg.idEstado}" selection="#{estadoMB.regSelected}"
+				selectionMode="single" paginator="true" rows="10"
+				rowsPerPageTemplate="5,10,15" paginatorPosition="bottom"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+				<p:ajax event="rowSelect" listener="#{estadoMB.onRowSelect}"
+					update=":frm" />
+				<p:ajax event="rowUnselect" listener="#{estadoMB.onRowUnSelect}"
+					update=":frm" />
+				<p:column style="width:125px">
+					<f:facet name="header">
+						<h:outputText value="Id" />
+					</f:facet>
+					<h:outputText value="#{reg.idEstado}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="Nombre" />
+					</f:facet>
+					<h:outputText value="#{reg.nombre}" />
+				</p:column>
+				<p:column headerText="Opciones" style="width:50px">
+					<p:rowEditor />
+				</p:column>
+			</p:dataTable>
+			<p:dialog header="NUEVO REGISTRO" widgetVar="formEdit" modal="true"
+				resizable="false" width="400" id="dlgForm">
+				<p:ajax event="close" listener="#{estadoMB.onCancel}"
+					update="frm,pgEditNew" immediate="true" />
+				<h:panelGrid id="pgEditNew" columns="2"
+					rendered="#{!estadoMB.status.equals('SEARCH')}">
+					<p:outputLabel for="txtnombre" value="Nombre" />
+					<p:inputText id="txtnombre" value="#{estadoMB.registro.nombre}" />
+					<f:facet name="footer">
+						<p:commandButton action="#{estadoMB.onSave}" value="Guardar"
+							onclick="if (!confirm('Guardar información ingresada?')){return false;}"
+							oncomplete="formEdit.hide();" update=":frm" />
+					</f:facet>
+				</h:panelGrid>
+			</p:dialog>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
+

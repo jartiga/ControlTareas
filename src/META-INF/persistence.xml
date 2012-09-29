@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="ControlTareas">
+		<jta-data-source>jdbc/task</jta-data-source>
+		<class>sv.com.task.entities.Actividadesproyecto</class>
+		<class>sv.com.task.entities.Empleado</class>
+		<class>sv.com.task.entities.Estado</class>
+		<class>sv.com.task.entities.Menasjesportarea</class>
+		<class>sv.com.task.entities.Movimientostarea</class>
+		<class>sv.com.task.entities.Perfil</class>
+		<class>sv.com.task.entities.Proyecto</class>
+		<class>sv.com.task.entities.Proyectoresponsable</class>
+		<class>sv.com.task.entities.Tarea</class>
+		<class>sv.com.task.entities.Tareasresponsable</class>
+		<class>sv.com.task.entities.Tipoactividad</class>
+	</persistence-unit>
+</persistence>

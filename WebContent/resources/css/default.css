@@ -1,0 +1,125 @@
+/*html {
+	scrollbar-face-color: #D5E4FB;
+	scrollbar-arrow-color: black;
+	scrollbar-highlight-color: #fffbf0;
+	scrollbar-3dlight-color: #D5E4FB;
+	scrollbar-shadow-color: #fffbf0;
+	scrollbar-darkshadow-color: #D5E4FB;
+	scrollbar-track-color: #F2F2F2;
+}*/
+
+body {
+	background-image: url("#{resource['images/background.jpg']}");
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-attachment: fixed;
+	font-size: 12px;
+	font-family: sans-serif;
+}
+
+img {
+	border: none;
+}
+
+#layout {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #58ACFA;
+	background-color: #FFFFFF;
+	width: 995px;
+}
+
+#cabecera {
+	text-align: center;
+	font-weight: bold;
+}
+
+#institucion {
+	font-size: 18px;
+	color: #5BB759;
+}
+
+#sistema {
+	font-size: 20px;
+	color: #214489;
+}
+
+#content {
+	width: auto;
+	min-height: 550px;
+	overflow: auto;
+	background-color: #F2F2F2;
+	/*padding-top: 5px;
+	padding-bottom: 3px;*/
+}
+
+.contenedor {
+	width: 100%;
+	min-height: 550px;
+	overflow: auto;
+	background-color: #F2F2F2;
+	/*padding-top: 5px;
+	padding-bottom: 3px;*/
+}
+
+.tituloPantalla { /*float: left;*/
+	font-weight: bold;
+	font-size: 13px;
+	width: auto;
+	text-align: center;
+	text-transform:uppercase;  
+}
+
+/************************************************************************************************
+************************ESTILO DE MENSAJES*******************************************************
+*************************************************************************************************/
+.msg {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #FEE681;
+	font-weight: bold;
+	background: #FFFAE2;
+	padding: 2px 2px 2px 2px;
+}
+
+.msgError {
+	color: #FA5858;
+}
+
+.msgInfo {
+	color: #58ACFA;
+}
+
+.msgWarn {
+	color: #FF8000;
+}
+
+/************************************************************************************************
+************************ESTILO DE FORMULARIOS****************************************************
+*************************************************************************************************/
+.input-text-upper {
+	text-transform: uppercase;
+}
+
+.input-text-readonly {
+	background-color: #FFFAE2 !important;
+	font-weight: bold;
+}
+
+/************************************************************************************************
+************************ESTILO DE TABLAS*********************************************************
+*************************************************************************************************/
+.even-row {
+	background-color: #FCFFFE !important;
+}
+
+ 
+.odd-row {
+	background-color: #ECF3FE !important;
+}
+
+.active-row {
+	background-color: #FFEBDA !important;
+	cursor: pointer;
+}
+/************************************************************************************************/
